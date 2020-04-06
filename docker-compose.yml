@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+
+  navaz.me_db:
+    container_name: navaz.me_db
+    image: mongo:latest
+    restart: always
+    command: mongod
+    # exposed for testing
+    ports:
+      - "27017:27017"
+
+  navaz.me_core:
+    container_name: navaz.me_core
+    depends_on:
+      - "navaz.me_db"
+    image: golang:latest
+    restart: always
+    volumes:
+      - .:/go/src/navaz.me
+    ports:
+      - "4000:4000"
+    command: make --directory=src/navaz.me
+
+  navaz.me_frontend:
+    container_name: navaz.me_frontend
+    image: node:latest
+    volumes:
+      - ./frontend:/frontend
+    working_dir: /frontend
+    command: make --directory=/frontend
+    ports:
+      - "5000:3000"

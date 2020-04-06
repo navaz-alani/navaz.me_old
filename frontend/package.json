@@ -1,0 +1,28 @@
+{
+  "name": "navaz.me",
+  "version": "1.0.0",
+  "description": "Navaz Alani's Personal Website",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/navaz-alani/navaz.me.git"
+  },
+  "author": "Navaz Alani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/navaz-alani/navaz.me/issues"
+  },
+  "homepage": "https://github.com/navaz-alani/navaz.me#readme",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "next": "^9.3.4",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.0",
+    "react-dom": "^16.13.1"
+  }
+}
