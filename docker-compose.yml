@@ -7,9 +7,6 @@ services:
     image: mongo:latest
     restart: always
     command: mongod
-    # exposed for testing
-    ports:
-      - "27017:27017"
 
   navaz.me_core:
     container_name: navaz.me_core
@@ -20,7 +17,7 @@ services:
     volumes:
       - .:/go/src/navaz.me
     ports:
-      - "4000:4000"
+      - "6001:4000"
     command: make --directory=src/navaz.me
 
   navaz.me_frontend:
@@ -31,4 +28,4 @@ services:
     working_dir: /frontend
     command: make --directory=/frontend
     ports:
-      - "5000:3000"
+      - "6000:3000"

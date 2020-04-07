@@ -1,0 +1,6 @@
+github.com/gorilla/mux v1.7.4 h1:VuZ8uybHlWmqV03+zRzdwKL4tUnIp1MAQtp1mIFE1bc=
+github.com/gorilla/mux v1.7.4/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
+github.com/navaz-alani/dotenv v0.1.0 h1:sDLzNEaELx5n1lD9QGTKoYbCchrluS87Bk8GND8bvDc=
+github.com/navaz-alani/dotenv v0.1.0/go.mod h1:j04SU9SaOs4Uhj1G7i1na1q0LPXSN5xg6zho1OwkfRU=
+github.com/rs/cors v1.7.0 h1:+88SsELBHx5r+hZ8TCkggzSstaWNbDvThkVK8H6f9ik=
+github.com/rs/cors v1.7.0/go.mod h1:gFx+x8UowdsKA9AchylcLynDq+nNFfI8FkUZdN/jGCU=
