@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Head from "next/Head";
+import Head from "next/head";
 import Field from "../../components/field/fields";
 import Button from "react-bootstrap/Button";
 import Axios from "axios";
