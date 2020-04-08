@@ -8,7 +8,7 @@ const HomePage = () => {
 
     let pages = [
         {name: "Projects", href: "/projects"},
-        {name: "My Lists", href: "/lists"},
+        {name: "Content", href: "/content"},
         {name: "Contact Form", href: "/contact"},
     ];
     let links = [

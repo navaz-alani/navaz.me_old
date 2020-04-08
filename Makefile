@@ -1,7 +1,6 @@
 GO=go
 # output binary name
-OUT=navaz.me
-
+OUT=navaz_me
 
 exec:
 	$(GO) build -o $(OUT)
