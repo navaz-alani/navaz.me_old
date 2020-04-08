@@ -3,13 +3,13 @@ import Head from "next/head";
 
 const HomePage = () => {
     let time = new Date().toDateString();
-    const welcomeStr = "Welcome to navaz.me!";
+    const welcomeStr = "Welcome to Navaz's Home Page";
     const commentLine = "#".repeat(Math.max(time.length, welcomeStr.length));
 
     let pages = [
-        {name: "Projects", href: "/projects"},
-        {name: "Content", href: "/content"},
-        {name: "Contact Form", href: "/contact"},
+        {name: "My Work", href: "/projects"},
+        {name: "Browse Content", href: "/content"},
+        {name: "Contact Me", href: "/contact"},
     ];
     let links = [
         {img: "/GitHub-Mark-Light-120px-plus.png", href: "https://git.navaz.me"},
@@ -30,32 +30,36 @@ const HomePage = () => {
                     <code>{commentLine}</code>
                     <div><br/>
                         <code className="command">> </code>
-                        <code>whoami<br/></code>
+                        <code>about-me<br/></code>
                         <code className="output">
                             Navaz Alani<br/>
                             🎓 CS @ UWaterloo<br/>
                             👨🏽‍💻 Developer<br/>
-                            🗺 Toronto
+                            🗺 Toronto<br/>
                         </code>
                     </div>
-                    <div><br/>
+                    <div>
                         <code className="command">> </code>
-                        <code>pages<br/></code>
+                        <code>goto ↹<br/></code>
                         <code className="output">
                             {
                                 pages.map((page, index) => {
                                     return (
-                                        <a key={index}
-                                           href={page.href}
-                                        >
-                                            {page.name}<br/>
-                                        </a>
+                                        <>
+                                            {/*tab twice*/}
+                                            &emsp;&emsp;
+                                            <a key={index}
+                                               href={page.href}
+                                            >
+                                                {page.name}<br/>
+                                            </a>
+                                        </>
                                     );
                                 })
                             }
                         </code>
                     </div>
-                    <div><br/>
+                    <div>
                         <code className="command">> </code>
                         <code>links<br/></code>
                         <code className="output">Check me out!<br/></code>

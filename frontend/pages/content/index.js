@@ -19,7 +19,7 @@ const ContentHome = () => {
                     setIndex(r.data.index);
                 })
                 .catch(e => {
-                    setErr(e.data.response);
+                    setErr(e.data);
                 })
         }
     }, [index]);
@@ -69,7 +69,9 @@ const ContentHome = () => {
                                                         <tr>
                                                             <td>{ePos + 1}</td>
                                                             <td>
-                                                                <a href={link}>
+                                                                <a href={link}
+                                                                   className="resource-link"
+                                                                >
                                                                     {entry.title}
                                                                 </a>
                                                             </td>
@@ -86,8 +88,10 @@ const ContentHome = () => {
                         </Tabs>
                     )
                     : (
-                        <div>
-                            Content index could not be loaded!
+                        <div id="content-error">
+                            Oh no! 😱<br/>
+                            Index could not be loaded<br/>
+                            Please try again later...
                         </div>
                     )
                 }

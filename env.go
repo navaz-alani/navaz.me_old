@@ -15,6 +15,9 @@ var required = []string{
 	"APP",
 	"HOST",
 	"PORT",
+	"SENDGRID_KEY",
+	"MAILTO_NAME",
+	"MAILTO_ADDR",
 }
 
 // envInit initializes some application parameters

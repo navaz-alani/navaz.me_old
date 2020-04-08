@@ -9,6 +9,7 @@ import (
 	"github.com/rs/cors"
 
 	"github.com/navaz-alani/navaz.me/core/content"
+	"github.com/navaz-alani/navaz.me/core/mail"
 )
 
 // Init initializes the core service's router.
@@ -28,4 +29,8 @@ func configureRoutes(m *mux.Router) {
 	m.HandleFunc("/contentIndex", content.Index)
 	m.HandleFunc("/content", content.Serve)
 	m.HandleFunc("/pdfs/{filename}", content.ServePDFs)
+	/*
+		Mail route
+	*/
+	m.HandleFunc("/mail", mail.SendMail)
 }
