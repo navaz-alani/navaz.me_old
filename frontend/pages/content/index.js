@@ -51,9 +51,7 @@ const ContentHome = () => {
                                     <Tab title={contentType} eventKey={contentType}>
                                         {/*A table for content listing*/}
                                         <Table key={kPos}
-                                               className="index-group"
                                                striped bordered hover
-                                               responsive="sm"
                                                size="sm"
                                         >
                                             {/*Document number and title as table headers*/}
