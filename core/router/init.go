@@ -7,7 +7,7 @@ import (
 
 	"github.com/gorilla/mux"
 
-	"github.com/navaz-alani/navaz.me/core/mdPages"
+	"github.com/navaz-alani/navaz.me/core/content"
 )
 
 // Init initializes the core service's router.
@@ -21,5 +21,10 @@ func Init(host, port string) {
 }
 
 func configureRoutes(m *mux.Router) {
-	m.HandleFunc("/md", mdPages.Serve)
+	/*
+		Content delivery routes
+	*/
+	m.HandleFunc("/contentIndex", content.Index)
+	m.HandleFunc("/content", content.Serve)
+	m.HandleFunc("/pdfs/{filename}", content.ServePDFs)
 }

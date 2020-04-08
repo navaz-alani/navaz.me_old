@@ -1,4 +1,6 @@
-# Navaz's Personal Site
+# Source Code for `navaz.me`
+
+<img src="frontend/public/favicon.png" height=150/>
 
 This repository contains source code for my personal website currently
 hosted [here](https://navaz.me).

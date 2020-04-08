@@ -1,4 +1,5 @@
 import React from "react";
+import Head from "next/head";
 
 const HomePage = () => {
     let time = new Date().toDateString();
@@ -7,7 +8,7 @@ const HomePage = () => {
 
     let pages = [
         {name: "Projects", href: "/projects"},
-        {name: "My Lists", href: "/lists"},
+        {name: "Content", href: "/content"},
         {name: "Contact Form", href: "/contact"},
     ];
     let links = [
@@ -17,61 +18,67 @@ const HomePage = () => {
     ];
 
     return (
-        <div className="home-container">
-            <div id="whoami" className="bg-text">
-                <code><b>{welcomeStr}</b></code><br/>
-                <code><i>{time}</i></code><br/>
-                <code>{commentLine}</code>
-                <div><br/>
-                    <code className="command">> </code>
-                    <code>whoami<br/></code>
-                    <code className="output">
-                        Navaz Alani<br/>
-                        🎓 CS @ UWaterloo<br/>
-                        👨🏽‍💻 Developer<br/>
-                        🗺 Toronto
-                    </code>
-                </div>
-                <div><br/>
-                    <code className="command">> </code>
-                    <code>pages<br/></code>
-                    <code className="output">
-                        {
-                            pages.map((page, index) => {
-                                return (
-                                    <a key={index}
-                                       href={page.href}
-                                    >
-                                        {page.name}<br/>
-                                    </a>
-                                );
-                            })
-                        }
-                    </code>
-                </div>
-                <div><br/>
-                    <code className="command">> </code>
-                    <code>links<br/></code>
-                    <code className="output">Check me out!<br/></code>
-                    <div id="links">
-                        {
-                            links.map((link, index) => {
-                                return (
-                                    <a href={link.href}>
-                                        <img
-                                            src={link.img}
-                                            className="link"
-                                        />
-                                    </a>
-                                );
-                            })
-                        }
+        <>
+            <Head>
+                <title>Navaz Alani's Home Page</title>
+                <link rel="shortcut icon" href="/favicon.ico"/>
+            </Head>
+            <div className="home-container">
+                <div id="whoami" className="bg-text">
+                    <code><b>{welcomeStr}</b></code><br/>
+                    <code><i>{time}</i></code><br/>
+                    <code>{commentLine}</code>
+                    <div><br/>
+                        <code className="command">> </code>
+                        <code>whoami<br/></code>
+                        <code className="output">
+                            Navaz Alani<br/>
+                            🎓 CS @ UWaterloo<br/>
+                            👨🏽‍💻 Developer<br/>
+                            🗺 Toronto
+                        </code>
                     </div>
+                    <div><br/>
+                        <code className="command">> </code>
+                        <code>pages<br/></code>
+                        <code className="output">
+                            {
+                                pages.map((page, index) => {
+                                    return (
+                                        <a key={index}
+                                           href={page.href}
+                                        >
+                                            {page.name}<br/>
+                                        </a>
+                                    );
+                                })
+                            }
+                        </code>
+                    </div>
+                    <div><br/>
+                        <code className="command">> </code>
+                        <code>links<br/></code>
+                        <code className="output">Check me out!<br/></code>
+                        <div id="links">
+                            {
+                                links.map((link, index) => {
+                                    return (
+                                        <a href={link.href}>
+                                            <img
+                                                src={link.img}
+                                                className="link"
+                                            />
+                                        </a>
+                                    );
+                                })
+                            }
+                        </div>
+                    </div>
+                    <code>{commentLine}</code><br/>
+                    <code>© 2020 Navaz Alani</code>
                 </div>
-                <code>{commentLine}</code><br/>
-                <code>© 2020 Navaz Alani</code>
             </div>
-        </div>
+        </>
     );
 };
 
