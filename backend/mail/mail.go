@@ -1,3 +1,6 @@
+// Package mail handles requests to deliver mail to the
+// account specified in the environment variables under
+// the keys "MAILTO_NAME" and "MAILTO_ADDR".
 package mail
 
 import (

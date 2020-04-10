@@ -23,6 +23,7 @@ services:
   navaz.me_frontend:
     container_name: navaz.me_frontend
     image: node:latest
+    restart: always
     volumes:
       - ./frontend:/frontend
     working_dir: /frontend

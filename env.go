@@ -4,7 +4,6 @@ import (
 	"log"
 
 	"github.com/navaz-alani/dotenv"
-
 )
 
 // required specifies which keys MUST be read
@@ -12,12 +11,16 @@ import (
 // read these variables will cause the program
 // to exit with status 1.
 var required = []string{
+	// Router params
 	"APP",
 	"HOST",
 	"PORT",
+	// Mail params
 	"SENDGRID_KEY",
 	"MAILTO_NAME",
 	"MAILTO_ADDR",
+	// Content distribution params
+	"FS_ROOT",
 }
 
 // envInit initializes some application parameters

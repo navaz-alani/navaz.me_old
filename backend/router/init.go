@@ -8,11 +8,11 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 
-	"github.com/navaz-alani/navaz.me/core/content"
-	"github.com/navaz-alani/navaz.me/core/mail"
+	"github.com/navaz-alani/navaz.me/backend/content"
+	"github.com/navaz-alani/navaz.me/backend/mail"
 )
 
-// Init initializes the core service's router.
+// Init initializes the backend service's router.
 func Init(host, port string) {
 	m := mux.NewRouter()
 	configureRoutes(m)
@@ -28,7 +28,7 @@ func configureRoutes(m *mux.Router) {
 	*/
 	m.HandleFunc("/contentIndex", content.Index)
 	m.HandleFunc("/content", content.Serve)
-	m.HandleFunc("/pdfs/{filename}", content.ServePDFs)
+	m.HandleFunc("/pdfs/{topicID}/{resourceID}", content.ServePDF)
 	/*
 		Mail route
 	*/

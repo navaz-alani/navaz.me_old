@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/navaz-alani/dotenv"
 
-	"github.com/navaz-alani/navaz.me/core"
+	"github.com/navaz-alani/navaz.me/backend"
 )
 
 var env *dotenv.Env
@@ -11,6 +11,6 @@ var env *dotenv.Env
 func main() {
 	// Read environment variables
 	envInit(".env")
-	// Inject variables into core service
-	core.Init(env)
+	// Inject variables into backend service
+	backend.Init(env)
 }
