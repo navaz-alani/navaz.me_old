@@ -22,16 +22,19 @@ const Content = () => {
 
     useEffect(() => {
         if (params !== undefined) {
-            let contentType = params[0];
-            let resourceID = params[1];
+            console.log(params);
+            let topicID = params[0];
+            let contentTypeID = params[1];
+            let resourceID = params[2];
 
-            if (contentType === "pdfs") {
-                // load pdf in browser window
-                window.location = `${publicRuntimeConfig.BE}/pdfs/${resourceID}.pdf`;
+            if (contentTypeID === "pdfs") {
+                const backendUrl = `${publicRuntimeConfig.BE}/pdfs/${topicID}/${resourceID}`;
+                window.location.replace(backendUrl);
             }
 
             Axios.post(`${publicRuntimeConfig.BE}/content`, {
-                type: contentType,
+                topicID: topicID,
+                contentTypeID: contentTypeID,
                 resourceID: resourceID,
             })
                 .then(response => {
@@ -54,11 +57,9 @@ const Content = () => {
                         <div id="page">
                             {{
                                 "articles": (
-
                                     <ReactMarkdown source={file}/>
-
                                 ),
-                            }[params[0]]}
+                            }[params[1]]}
                         </div>
                     </>
                 )
