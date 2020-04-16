@@ -4,6 +4,8 @@ import Field from "../../components/field/fields";
 import Button from "react-bootstrap/Button";
 import Axios from "axios";
 import getConfig from "next/config";
+import Header from "../../components/header/header";
+import Footer from "../../components/footer/footer";
 
 const {publicRuntimeConfig} = getConfig();
 
@@ -82,6 +84,7 @@ const ContactPage = () => {
             <Head>
                 <title>Contact Navaz</title>
             </Head>
+            <Header/>
             <div id="page" className="contact-page">
                 <h1 id="page-title">Contact Navaz</h1>
                 <h2 id="page-title">Slide into my inbox 📥</h2><br/>
@@ -106,6 +109,7 @@ const ContactPage = () => {
                     {succ}
                 </div>
             </div>
+            <Footer/>
         </>
     );
 };

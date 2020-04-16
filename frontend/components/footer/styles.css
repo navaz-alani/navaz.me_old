@@ -1,0 +1,21 @@
+#glob-footer {
+    background-color: #343a40;
+    min-height: 10vh;
+    box-shadow: 0 0 30px 0 rgba(50, 50, 50, 0.6);
+}
+
+#footer-content {
+    width: 65%;
+    margin: 0 auto;
+    padding: 1em 1em 0.25em;
+}
+
+#copyright-line {
+    text-align: center;
+    padding: 5px;
+    font-family: "PT Mono", monospace;
+}
+
+#copyright-line a {
+    color: white;
+}

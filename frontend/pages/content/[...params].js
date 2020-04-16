@@ -1,10 +1,14 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
+import Head from "next/head";
 import Axios from "axios";
 import ReactMarkdown from "react-markdown";
 import getConfig from 'next/config';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
+import Footer from "../../components/footer/footer";
+import Header from "../../components/header/header";
+import Spinner from "../../components/spinner/spinner";
 
-const {publicRuntimeConfig} = getConfig();
+const { publicRuntimeConfig } = getConfig();
 
 /*
 * Content is a component which parses the URL slug and
@@ -16,13 +20,14 @@ const {publicRuntimeConfig} = getConfig();
 const Content = () => {
     const router = useRouter();
     const params = router.query.params;
+    const pageTitle = router.query.ttl;
 
     let [file, setFile] = useState("");
     let [err, setErr] = useState(undefined);
+    let [loading, setLoading] = useState(true);
 
     useEffect(() => {
         if (params !== undefined) {
-            console.log(params);
             let topicID = params[0];
             let contentTypeID = params[1];
             let resourceID = params[2];
@@ -39,6 +44,7 @@ const Content = () => {
             })
                 .then(response => {
                     setFile(response.data);
+                    setLoading(false);
                 })
                 .catch(error => {
                     if (error.response === undefined) {
@@ -46,39 +52,51 @@ const Content = () => {
                     } else {
                         setErr(error.response.data);
                     }
+                    setLoading(false);
                 });
         }
     }, [params]);
 
-    return <>
-        {
-            (err === undefined && params !== undefined)
-                ? (<>
-                        <div id="page">
+    return (
+        <>
+            <Header />
+            {(loading)
+                ? <Spinner />
+                : (err === undefined && params !== undefined)
+                    ? <>
+                        <div id="page"
+                            className="md-window"
+                        >
+                            {(pageTitle !== undefined)
+                                ? <Head>
+                                    <title>{pageTitle}</title>
+                                </Head>
+                                : <></>
+                            }
                             {{
                                 "articles": (
-                                    <ReactMarkdown source={file}/>
+                                    <ReactMarkdown source={file} />
                                 ),
+                                // switch on content type, params[1]
                             }[params[1]]}
                         </div>
                     </>
-                )
-                : (params !== undefined)
-                ? (
-                    <div id="article-error">
-                        Sorry, content at
-                        <code> "{params.join("/")}" </code>
-                        could not be loaded!<br/><br/>
-                        The following happened:<br/>
-                        <code>`{err}`</code>
-                    </div>
-                ) : (
-                    <div id="article-error">
-                        An error occurred while loading this page!
-                    </div>
-                )
-        }
-    </>
+                    : (params !== undefined)
+                        ? (
+                            <div id="article-error">
+                                Sorry, content at
+                                <code> "{params.join("/")}" </code>
+                                could not be loaded!<br /><br />
+                                The following happened:<br />
+                                <code>`{err}`</code>
+                            </div>
+                        ) : (
+                            <div id="article-error">
+                                An error occurred while loading this page!
+                            </div>
+                        )}
+            <Footer />
+        </>);
 };
 
 export default Content;

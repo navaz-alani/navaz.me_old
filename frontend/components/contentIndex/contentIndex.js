@@ -2,6 +2,11 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import Accordion from "react-bootstrap/Accordion";
 
+/*
+* ContentIndex displays the given contentIndex data structure using
+* react-bootstrap components. The data structure is guaranteed to have
+* the expected schema as it is enforced statically by the backend.
+* */
 const ContentIndex = ({contentIndex}) => {
     return (
         <Accordion defaultActiveKey={0}>
@@ -29,7 +34,7 @@ const ContentIndex = ({contentIndex}) => {
                                                         key={r.ID}
                                                     >
                                                         <Card.Header>
-                                                            <a href={`content/${topic.topicID}/${ct.contentTypeID}/${r.ID}`}>
+                                                            <a href={`content/${topic.topicID}/${ct.contentTypeID}/${r.ID}?ttl=${r.name}`}>
                                                                 🔗 {r.name}
                                                             </a>
                                                         </Card.Header>
