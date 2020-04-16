@@ -110,17 +110,16 @@ func (fs *Fs) Enumerate() {
 
 			topics, err := ioutil.ReadDir(fs.Root)
 			if err != nil {
-				log.Println("err: failed to enumerate fs.Root")
-				goto wait
+				log.Fatal("err: failed to enumerate fs.Root")
 			}
 
 			for _, topicEntry := range topics {
-				if !topicEntry.IsDir() {
+				if !topicEntry.IsDir()  {
 					continue
 				}
 				topicNameParts := strings.Split(topicEntry.Name(), ":")
 				if len(topicNameParts) != 2 {
-					log.Printf("err: invalid topic '%s'\n", topicEntry.Name())
+					//log.Printf("err: invalid topic '%s'\n", topicEntry.Name())
 					continue
 				}
 				newTopic := Topic{
@@ -131,8 +130,8 @@ func (fs *Fs) Enumerate() {
 				contentTypeDir := fmt.Sprintf("%s/%s", fs.Root, topicEntry.Name())
 				contentTypes, err := ioutil.ReadDir(contentTypeDir)
 				if err != nil {
-					log.Printf("err: failed to enumerate content types in topic '%s'\n",
-						contentTypeDir)
+					//log.Printf("err: failed to enumerate content types in topic '%s'\n",
+					//	contentTypeDir)
 					continue
 				}
 				for _, contentType := range contentTypes {
@@ -141,8 +140,8 @@ func (fs *Fs) Enumerate() {
 					}
 					contentTypeNameParts := strings.Split(contentType.Name(), ":")
 					if len(contentTypeNameParts) != 3 {
-						log.Printf("err: invalid content type name '%s' under topic '%s'\n",
-							contentType.Name(), newTopic.Name)
+						//log.Printf("err: invalid content type name '%s' under topic '%s'\n",
+						//	contentType.Name(), newTopic.Name)
 						continue
 					}
 					newContentType := ContentType{
@@ -155,14 +154,14 @@ func (fs *Fs) Enumerate() {
 					enumFilePath := fmt.Sprintf("%s/%s/enum.txt", contentTypeDir, contentType.Name())
 					enumFile, err := ioutil.ReadFile(enumFilePath)
 					if err != nil {
-						log.Printf("err: no enum.txt file at '%s/%s'", contentTypeDir, contentType.Name())
+						//log.Printf("err: no enum.txt file at '%s/%s'", contentTypeDir, contentType.Name())
 						continue
 					}
 					enumEntries := strings.Split(string(enumFile), "\n")
-					for i, resourceEntry := range enumEntries {
+					for _, resourceEntry := range enumEntries {
 						resourceSpecs := strings.Split(resourceEntry, "%%")
 						if len(resourceSpecs) != 3 {
-							log.Printf("err: enum entry %d in '%s' invalid", i, contentTypeDir)
+							//log.Printf("err: enum entry %d in '%s' invalid", i, contentTypeDir)
 							continue
 						}
 						newResource := Resource{
@@ -193,7 +192,7 @@ func (fs *Fs) Enumerate() {
 			fs.PdfPaths = enumPdfPaths
 			fs.ResourcePaths = enumResourcePaths
 			fs.mu.Unlock()
-		wait:
+
 			time.Sleep(30 * time.Second)
 		}
 	}()

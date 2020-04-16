@@ -2,16 +2,7 @@ version: '3'
 
 services:
 
-  navaz.me_db:
-    container_name: navaz.me_db
-    image: mongo:latest
-    restart: always
-    command: mongod
-
   navaz.me_core:
-    container_name: navaz.me_core
-    depends_on:
-      - "navaz.me_db"
     image: golang:latest
     restart: always
     volumes:
