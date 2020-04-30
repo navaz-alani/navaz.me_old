@@ -77,6 +77,7 @@ const Content = () => {
                             {{
                                 "articles": (
                                     <ReactMarkdown source={file}
+                                                   escapeHtml={false}
                                                    renderers={
                                                        {code: CodeRenderer}
                                                    }

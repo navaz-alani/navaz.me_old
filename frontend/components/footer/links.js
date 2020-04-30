@@ -20,7 +20,8 @@ const Links = () => {
         <div id="links">
             {links.map((link, index) => {
                 return (
-                    <a href={link.href}>
+                    <a href={link.href}
+                       key={index}>
                         <img
                             src={link.img}
                             className="link"

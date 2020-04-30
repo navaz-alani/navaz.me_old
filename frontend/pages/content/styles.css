@@ -51,6 +51,10 @@
     }
 }
 
+.topic {
+    margin-top: 1em;
+}
+
 .topic-name {
     text-align: center;
 }
@@ -70,4 +74,8 @@
     box-sizing: border-box;
     padding: 20px;
     box-shadow: 0 0 30px 0 rgba(50, 50, 50, 0.6);
+}
+
+#content-index-jumbo {
+    text-align: center;
 }
