@@ -3,12 +3,20 @@ import React from "react";
 const Links = () => {
     let links = [
         {
-            img: "/GitHub-Mark-Light-64px.webp",
+            img: {
+                webp: "/webp/GitHub-Mark-Light-64px.webp",
+                raw: "/raw/GitHub-Mark-Light-64px.png",
+                rawType: "image/png"
+            },
             alt: "GitHub logo",
             href: "https://git.navaz.me"
         },
         {
-            img: "/LI-In-Bug.webp",
+            img: {
+                webp: "/webp/LI-In-Bug.webp",
+                raw: "/raw/LI-In-Bug.png",
+                rawType: "image/png"
+            },
             alt: "LinkedIn logo",
             href: "https://www.linkedin.com/in/navazalani/"
         },
@@ -19,17 +27,32 @@ const Links = () => {
         }
     ];
 
+    const renderLogo = (img, alt) => {
+        if (typeof img === 'object') {
+            return <picture>
+                <source srcset={img.webp} type="image/webp" />
+                <source srcset={img.raw} type={img.rawType} />
+                <img
+                    src={img.raw}
+                    className="link"
+                    alt={alt}
+                />
+            </picture>
+        }
+        return <img
+            src={img}
+            className="link"
+            alt={alt}
+        />
+    }
+
     return (
         <div id="links">
             {links.map((link, index) => {
                 return (
                     <a href={link.href}
                         key={index}>
-                        <img
-                            src={link.img}
-                            className="link"
-                            alt={link.alt}
-                        />
+                        {renderLogo(link.img, link.alt)}
                     </a>
                 );
             })}

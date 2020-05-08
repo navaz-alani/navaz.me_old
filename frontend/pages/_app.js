@@ -10,7 +10,7 @@ import "./../components/spinner/styles.css";
 
 
 const Site = ({ Component, pageProps }) => {
-    return <Component {...pageProps}/>;
+    return <Component {...pageProps} />;
 };
 
 export default Site;

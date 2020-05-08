@@ -9,7 +9,9 @@ class MyDocument extends Document {
     render() {
         return (
             <Html lang="en">
-                <Head />
+                <Head>
+                    <script src="/modernizr-webp-detect.js" />
+                </Head>
                 <body>
                     <Main />
                     <NextScript />

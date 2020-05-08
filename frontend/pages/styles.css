@@ -7,11 +7,18 @@ body, html {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background-image: url("/me.webp");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     overflow: scroll;
+}
+
+.no-webp .home-container {
+    background-image: url("/raw/me.jpg");
+}
+
+.webp .home-container {
+    background-image: url("/webp/me.webp");
 }
 
 .bg-text {
