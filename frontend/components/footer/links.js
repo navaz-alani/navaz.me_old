@@ -3,12 +3,12 @@ import React from "react";
 const Links = () => {
     let links = [
         {
-            img: "/GitHub-Mark-Light-120px-plus.png",
+            img: "/GitHub-Mark-Light-64px.webp",
             alt: "GitHub logo",
             href: "https://git.navaz.me"
         },
         {
-            img: "/LI-In-Bug.png",
+            img: "/LI-In-Bug.webp",
             alt: "LinkedIn logo",
             href: "https://www.linkedin.com/in/navazalani/"
         },
