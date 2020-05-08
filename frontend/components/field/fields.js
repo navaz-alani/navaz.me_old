@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 
 /**
@@ -28,6 +28,7 @@ class field {
         this.placeholder = placeholder;
         this.pattern = pattern;
         this.msg = msg;
+        this.id = label.replace(" ", "_")
     }
 
     /**
@@ -60,12 +61,13 @@ class field {
     paint(key) {
         return (
             <Form.Group key={key}>
-                <Form.Label>{this.label}</Form.Label>
-                <Form.Control onChange={(e) => this.setVal(e.target.value)}
-                              value={this.value}
-                              type={this.type}
-                              placeholder={this.placeholder}
-                              as={this.as}
+                <Form.Label htmlFor={this.id}>{this.label}</Form.Label>
+                <Form.Control id={this.id}
+                    onChange={(e) => this.setVal(e.target.value)}
+                    value={this.value}
+                    type={this.type}
+                    placeholder={this.placeholder}
+                    as={this.as}
                 />
                 <div className="field-error">
                     {this.err}

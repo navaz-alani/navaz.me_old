@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import Field from "../../components/field/fields";
 import Button from "react-bootstrap/Button";
@@ -7,7 +7,7 @@ import getConfig from "next/config";
 import Header from "../../components/header/header";
 import Footer from "../../components/footer/footer";
 
-const {publicRuntimeConfig} = getConfig();
+const { publicRuntimeConfig } = getConfig();
 
 const ContactPage = () => {
     /**
@@ -83,22 +83,24 @@ const ContactPage = () => {
         <>
             <Head>
                 <title>Contact Navaz</title>
+                <meta name="Description"
+                    content="Contact form to get in touch with Navaz Alani." />
             </Head>
-            <Header/>
+            <Header />
             <div id="page" className="contact-page">
-                <h1 id="page-title">Contact Navaz</h1>
-                <h2 id="page-title">Slide into my inbox 📥</h2><br/>
-                <p>This form will email me your message.</p><br/>
+                <h1 className="page-title">Contact Navaz</h1>
+                <h2 className="page-title">Slide into my inbox 📥</h2><br />
+                <p>This form will email me your message.</p><br />
                 <p>Ensure that your email is correct so that I can respond to you.</p>
-                <hr className="divider"/>
+                <hr className="divider" />
                 <div id="contact-form">
                     {contactFields.map((f, i) => {
                         return f.paint(i)
                     })}
                 </div>
                 <Button variant="primary"
-                        id="contact-submit"
-                        onClick={handleSubmit}
+                    id="contact-submit"
+                    onClick={handleSubmit}
                 >
                     Submit
                 </Button>
@@ -109,7 +111,7 @@ const ContactPage = () => {
                     {succ}
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 };

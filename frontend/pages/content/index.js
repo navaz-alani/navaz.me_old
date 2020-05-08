@@ -46,6 +46,8 @@ const ContentHome = () => {
         <>
             <Head>
                 <title>Content Index</title>
+                <meta name="Description"
+                    content="Index of content served on Navaz Alani's personal website." />
             </Head>
             <Header />
             <Jumbotron id="content-index-jumbo">
@@ -54,7 +56,7 @@ const ContentHome = () => {
                     <p>
                         The content served on this page can be found <a
                             href="https://git.navaz.me/navaz.me-content">
-                            here</a>.<br />
+                            in this GitHub repository</a>.<br />
                         If you notice an error, please open an <a
                             href="https://git.navaz.me/navaz.me-content/issues/new">
                             issue

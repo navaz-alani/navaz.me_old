@@ -1,15 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Axios from "axios";
 import ReactMarkdown from "react-markdown";
 import getConfig from 'next/config';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import Footer from "../../components/footer/footer";
 import Header from "../../components/header/header";
 import Spinner from "../../components/spinner/spinner";
 import CodeRenderer from "../../components/codeRenderer/codeRenderer";
 
-const {publicRuntimeConfig} = getConfig();
+const { publicRuntimeConfig } = getConfig();
 
 /*
 * Content is a component which parses the URL slug and
@@ -60,27 +60,29 @@ const Content = () => {
 
     return (
         <>
-            <Header/>
+            <Header />
             {(loading)
-                ? <Spinner/>
+                ? <Spinner />
                 : (err === undefined && params !== undefined)
                     ? <>
                         <div id="page"
-                             className="md-window"
+                            className="md-window"
                         >
                             {(pageTitle !== undefined)
                                 ? <Head>
                                     <title>{pageTitle}</title>
+                                    <meta name="Description"
+                                        content={`Navaz Alani's content on "${pageTitle}"`} />
                                 </Head>
                                 : <></>
                             }
                             {{
                                 "articles": (
                                     <ReactMarkdown source={file}
-                                                   escapeHtml={false}
-                                                   renderers={
-                                                       {code: CodeRenderer}
-                                                   }
+                                        escapeHtml={false}
+                                        renderers={
+                                            { code: CodeRenderer }
+                                        }
                                     />
                                 ),
                                 // switch on content type, params[1]
@@ -93,8 +95,8 @@ const Content = () => {
                                 <div id="article-error">
                                     Sorry, content at
                                     <code> "{params.join("/")}" </code>
-                                    could not be loaded!<br/><br/>
-                                    The following happened:<br/>
+                                    could not be loaded!<br /><br />
+                                    The following happened:<br />
                                     <code>`{err}`</code>
                                 </div>
                             ) : (
@@ -103,7 +105,7 @@ const Content = () => {
                                 </div>
                             )}
                     </div>}
-            <Footer/>
+            <Footer />
         </>);
 };
 
