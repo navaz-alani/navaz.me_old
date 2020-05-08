@@ -9,7 +9,7 @@ const Header = () => {
                 <Navbar.Brand href="/">
                     <img
                         alt=""
-                        src="/favicon.png"
+                        src="/favicon.ico"
                         width="30"
                         height="30"
                         className="d-inline-block align-top"
