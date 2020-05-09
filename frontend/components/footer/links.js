@@ -30,8 +30,8 @@ const Links = () => {
     const renderLogo = (img, alt) => {
         if (typeof img === 'object') {
             return <picture>
-                <source srcset={img.webp} type="image/webp" />
-                <source srcset={img.raw} type={img.rawType} />
+                <source srcSet={img.webp} type="image/webp" />
+                <source srcSet={img.raw} type={img.rawType} />
                 <img
                     src={img.raw}
                     className="link"

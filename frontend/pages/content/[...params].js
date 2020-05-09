@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import Axios from "axios";
-import ReactMarkdown from "react-markdown";
 import getConfig from 'next/config';
 import { useRouter } from 'next/router';
 import Footer from "../../components/footer/footer";
 import Header from "../../components/header/header";
 import Spinner from "../../components/spinner/spinner";
-import CodeRenderer from "../../components/codeRenderer/codeRenderer";
+import Markdown from "../../components/renderers/markdownRenderer";
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -78,12 +77,7 @@ const Content = () => {
                             }
                             {{
                                 "articles": (
-                                    <ReactMarkdown source={file}
-                                        escapeHtml={false}
-                                        renderers={
-                                            { code: CodeRenderer }
-                                        }
-                                    />
+                                    <Markdown source={file} />
                                 ),
                                 // switch on content type, params[1]
                             }[params[1]]}

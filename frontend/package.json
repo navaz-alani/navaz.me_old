@@ -23,14 +23,17 @@
   },
   "homepage": "https://github.com/navaz-alani/navaz.me#readme",
   "dependencies": {
+    "@matejmazur/react-katex": "^3.0.2",
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
+    "katex": "^0.11.1",
     "next": "^9.3.5",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",
     "react-pdf": "^4.1.0",
-    "react-syntax-highlighter": "^12.2.1"
+    "react-syntax-highlighter": "^12.2.1",
+    "remark-math": "^2.0.1"
   }
 }
