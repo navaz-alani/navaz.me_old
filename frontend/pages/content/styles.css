@@ -85,10 +85,12 @@
 
 table {
     border-collapse: collapse;
+    margin: 0 auto;
 }
 
 th {
     background-color: #f2f2f2;
+    white-space: nowrap;
 }
 
 th, td {
