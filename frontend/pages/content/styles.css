@@ -80,3 +80,28 @@
 #content-index-jumbo {
     text-align: center;
 }
+
+/* Table styles */
+
+table {
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+th, td {
+    padding: 7px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+} 
+
+tr:hover {
+    background-color: #b4b0b0;
+}
+
