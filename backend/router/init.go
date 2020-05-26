@@ -30,6 +30,10 @@ func configureRoutes(m *mux.Router) {
 	m.HandleFunc("/content", content.Serve)
 	m.HandleFunc("/pdfs/{topicID}/{resourceID}", content.ServePDF)
 	/*
+		Content update webhook endpoint
+	*/
+	m.HandleFunc("/sync-content", content.Sync)
+	/*
 		Mail route
 	*/
 	m.HandleFunc("/mail", mail.SendMail)

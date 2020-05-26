@@ -114,7 +114,7 @@ func (fs *Fs) Enumerate() {
 			}
 
 			for _, topicEntry := range topics {
-				if !topicEntry.IsDir()  {
+				if !topicEntry.IsDir() {
 					continue
 				}
 				topicNameParts := strings.Split(topicEntry.Name(), ":")

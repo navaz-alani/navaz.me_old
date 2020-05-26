@@ -13,7 +13,7 @@ import (
 )
 
 var (
-	client *sendgrid.Client
+	client    *sendgrid.Client
 	baseEmail *mail.Email
 )
 

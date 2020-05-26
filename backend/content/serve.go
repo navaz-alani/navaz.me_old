@@ -3,10 +3,12 @@ package content
 import (
 	"encoding/json"
 	"net/http"
+	"os/exec"
 
 	"github.com/gorilla/mux"
 )
 
+// Serve serves the requested content from the content root
 func Serve(w http.ResponseWriter, r *http.Request) {
 	var req struct {
 		TopicID       string `json:"topicID"`
@@ -47,4 +49,13 @@ func Index(w http.ResponseWriter, _ *http.Request) {
 	} else {
 		_, _ = w.Write(serializedIndex)
 	}
+}
+
+// Sync is a function which runs a script to synchromize the
+// content root dierctory that is being served. The sync process
+// is arbitrary and the prcedure is defined in a file called
+// 'syncFS.sh' in this project's root.
+func Sync(w http.ResponseWriter, _ *http.Request) {
+	w.WriteHeader(http.StatusAccepted)
+	exec.Command("./syncFS.sh").Run()
 }
