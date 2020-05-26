@@ -1,7 +1,11 @@
 package content
 
 import (
+	"crypto/hmac"
+	"crypto/sha1"
+	"encoding/hex"
 	"encoding/json"
+	"io/ioutil"
 	"net/http"
 	"os/exec"
 
@@ -55,7 +59,24 @@ func Index(w http.ResponseWriter, _ *http.Request) {
 // content root dierctory that is being served. The sync process
 // is arbitrary and the prcedure is defined in a file called
 // 'syncFS.sh' in this project's root.
-func Sync(w http.ResponseWriter, _ *http.Request) {
+func Sync(w http.ResponseWriter, r *http.Request) {
+	reqPayload, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		http.Error(w, "failed to read request", http.StatusBadRequest)
+		return
+	}
+	reqSignature := r.Header.Get("X-Hub-Signature")
+	if len(reqSignature) == 0 {
+		http.Error(w, "unauthorized", http.StatusUnauthorized)
+		return
+	}
+	mac := hmac.New(sha1.New, fs.secret)
+	_, _ = mac.Write(reqPayload)
+	expectedMAC := hex.EncodeToString(mac.Sum(nil))
+	if !hmac.Equal([]byte(reqSignature[5:]), []byte(expectedMAC)) {
+		http.Error(w, "unauthorized", http.StatusUnauthorized)
+		return
+	}
 	w.WriteHeader(http.StatusAccepted)
 	exec.Command("./syncFS.sh").Run()
 }

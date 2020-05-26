@@ -21,6 +21,7 @@ var required = []string{
 	"MAILTO_ADDR",
 	// Content distribution params
 	"FS_ROOT",
+	"XHUB_SECRET",
 }
 
 // envInit initializes some application parameters

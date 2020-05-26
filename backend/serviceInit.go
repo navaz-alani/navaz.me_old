@@ -12,7 +12,10 @@ import (
 // environment variables into the backend packages and
 // kicking off service routines/workers.
 func Init(env *dotenv.Env) {
-	content.Init(env.Get("FS_ROOT"))
+	content.Init(
+		env.Get("FS_ROOT"),
+		env.Get("XHUB_SECRET"),
+	)
 	mail.Init(
 		env.Get("SENDGRID_KEY"),
 		env.Get("MAILTO_NAME"),

@@ -58,6 +58,7 @@ type Topic struct {
 // it has to be designed with concurrency in mind.
 type Fs struct {
 	Root          string
+	secret        []byte
 	Index         []Topic
 	PdfPaths      map[string]string
 	ResourcePaths map[string]string
@@ -198,10 +199,11 @@ func (fs *Fs) Enumerate() {
 	}()
 }
 
-func Init(fsRoot string) {
+func Init(fsRoot, syncSecret string) {
 	fs = &Fs{
-		Root: fsRoot,
-		mu:   sync.Mutex{},
+		Root:   fsRoot,
+		secret: []byte(syncSecret),
+		mu:     sync.Mutex{},
 	}
 	fs.Enumerate()
 }
