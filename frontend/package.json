@@ -24,7 +24,7 @@
   "homepage": "https://github.com/navaz-alani/navaz.me#readme",
   "dependencies": {
     "@matejmazur/react-katex": "^3.0.2",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "katex": "^0.11.1",
     "next": "^9.3.5",
